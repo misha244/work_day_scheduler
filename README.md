@@ -1,4 +1,4 @@
-## Work Day Scheduler
+# Work Day Scheduler
 
 ## Table of Contents
 
@@ -14,4 +14,4 @@
 
 ## Screenshots
 
-## Fin
+## Fin.
