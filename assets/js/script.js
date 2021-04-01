@@ -1,8 +1,6 @@
 const saveButton = document.getElementById("saveBtn");
 const containerDiv = $(".container");
-
-// target data attribute
-const textAreas = containerDiv.children("text-area");
+const textAreas = containerDiv.children().children("textarea");
 
 // set current time fn with moment.js
 const setCurrentTime = () => {
@@ -14,19 +12,20 @@ const setCurrentTime = () => {
 const updateTimeBlocks = () => {
   // get current hour from moment.js
   const currentHour = moment().format("H");
+  console.log(currentHour);
   // convert str number to int number
   const currentHourInt = parseInt(currentHour);
   // set time classes to text
   const setTimeClass = (index) => {
-    const myTimeString = textAreas[index].dataset.mytime;
+    const myTimeString = textAreas[index].dataset.time;
     // convert to int
     const myTimeInt = parseInt(myTimeString);
     if (myTimeInt === currentHourInt) {
-      $(textAreas).addClass("present");
+      $(textAreas[index]).addClass("present");
     } else if (myTimeInt > currentHourInt) {
-      $(textAreas).addClass("future");
+      $(textAreas[index]).addClass("future");
     } else {
-      $(textAreas).addClass("past");
+      $(textAreas[index]).addClass("past");
     }
   };
   textAreas.each(setTimeClass);
@@ -42,9 +41,5 @@ const setSaveButton = () => {
   location.href = "https://misha244.github.io/work_day_scheduler/";
 };
 
-window.addEventListener("load", setCurrentTime);
-//TODO
-
-//saveBtn - save to local storage and load on refresh
-/// event listener
-//set text content of textarea
+// call functions with jquery
+$(document).ready(setCurrentTime);
