@@ -17,6 +17,7 @@ const updateTimeBlocks = () => {
   // convert str number to int number
   const currentHourInt = parseInt(currentHour);
   // add time classes to text
+  const setTimeClass = () => {};
 };
 
 // create fn to save input to local storage
