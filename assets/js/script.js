@@ -1,8 +1,8 @@
-const timeBlockElement = document.getElementById("timeBlockDiv");
 const saveButton = document.getElementById("saveBtn");
-const containerParent = document.getElementById("container");
+const containerDiv = $(".container");
+
 // target data attribute
-//const textAreas = containerParent.children().children(".text-area");
+const textAreas = containerDiv.children("text-area");
 
 // set current time fn with moment.js
 const setCurrentTime = () => {
