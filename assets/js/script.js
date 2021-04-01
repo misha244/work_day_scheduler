@@ -15,6 +15,8 @@ const updateTimeBlocks = () => {
   // get current hour from moment.js
   const currentHour = moment().format("H");
   // convert str number to int number
+  const currentHourInt = parseInt(currentHour);
+  // add time classes to text
 };
 
 // create fn to save input to local storage
