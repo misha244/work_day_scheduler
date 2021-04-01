@@ -1,10 +1,23 @@
-const timeBlockElement = document.getElementById("timeblockDiv");
+const timeBlockElement = document.getElementById("timeBlockDiv");
 const saveButton = document.getElementById("saveBtn");
 const currentTime = document.getElementById("currentDay");
 
+// set current time fn with moment.js
 const setCurrentTime = () => {
   currentTime.textContent = moment().format("dddd, MMMM Do YYYY, LTS");
   return currentTime;
+};
+
+// update time blocks fn
+
+// create fn to save input to local storage
+const setSaveButton = () => {
+  const textInput = document.getElementById("text-area");
+
+  if (textInput !== "") {
+    localStorage.setItem("textInput");
+  }
+  location.href = "https://misha244.github.io/work_day_scheduler/";
 };
 
 window.addEventListener("load", setCurrentTime);
