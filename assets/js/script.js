@@ -3,7 +3,7 @@ const saveButton = document.getElementById("saveBtn");
 const currentTime = document.getElementById("currentDay");
 
 const setCurrentTime = () => {
-  currentTime.textContent = moment().format("MMMM Do YYYY, h:mm:ss a");
+  currentTime.textContent = moment().format("dddd, MMMM Do YYYY, LTS");
   return currentTime;
 };
 
