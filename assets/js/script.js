@@ -1,3 +1,6 @@
+const timeBlockElement = document.getElementById("timeblockDiv");
+const saveButton = document.getElementById("saveBtn");
+
 //TODO
 //declare timeblock element
 
