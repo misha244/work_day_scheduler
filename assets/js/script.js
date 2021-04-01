@@ -7,8 +7,10 @@ const setCurrentTime = () => {
   currentTime.textContent = moment().format("dddd, MMMM Do YYYY, LTS");
   return currentTime;
 };
-
+// time blocks array
+// timeBlocks = [];
 // update time blocks fn
+//const updateTimeBlocks = () => {}
 
 // create fn to save input to local storage
 const setSaveButton = () => {
@@ -25,9 +27,7 @@ window.addEventListener("load", setCurrentTime);
 //declare timeblock element
 //get current time with moment.js
 
-//set up a function that adjusts time block classes accordingly to time //use a for each
 ///set class names
-//const updateTimeBlocks = () => {}
 
 //saveBtn - save to local storage and load on refresh
 /// event listener
