@@ -43,3 +43,4 @@ const setSaveButton = () => {
 
 // call functions with jquery
 $(document).ready(setCurrentTime);
+$(document).ready(updateTimeBlocks);
