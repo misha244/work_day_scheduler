@@ -9,8 +9,13 @@ const setCurrentTime = () => {
 };
 // time blocks array
 // timeBlocks = [];
-// update time blocks fn
-//const updateTimeBlocks = () => {}
+
+// update time blocks fn - adjust colours according to the current hour
+const updateTimeBlocks = () => {
+  // get current hour from moment.js
+  const currentHour = moment().format("H");
+  // convert str number to int number
+};
 
 // create fn to save input to local storage
 const setSaveButton = () => {
