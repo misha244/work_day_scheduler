@@ -1,14 +1,13 @@
 const timeBlockElement = document.getElementById("timeBlockDiv");
 const saveButton = document.getElementById("saveBtn");
-const currentTime = document.getElementById("currentDay");
 const containerParent = document.getElementById("container");
 // target data attribute
-const textAreas = containerParent.children(".text-area");
+//const textAreas = containerParent.children().children(".text-area");
 
 // set current time fn with moment.js
 const setCurrentTime = () => {
-  currentTime.textContent = moment().format("dddd, MMMM Do YYYY, LTS");
-  return currentTime;
+  currentTime.textContent = moment().format("dddd, MMMM Do YYYY, LT");
+  $("#currentDay").text(currentTime);
 };
 
 // update time blocks fn - adjust colours according to the current hour
