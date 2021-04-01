@@ -25,8 +25,14 @@ const updateTimeBlocks = () => {
     // convert to int
     const myTimeInt = parseInt(myTimeString);
     if (myTimeInt === currentHourInt) {
+      $(textAreas).addClass("present");
+    } else if (myTimeInt > currentHourInt) {
+      $(textAreas).addClass("future");
+    } else {
+      $(textAreas).addClass("past");
     }
   };
+  textAreas.each(setTimeClass);
 };
 
 // create fn to save input to local storage
