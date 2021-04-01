@@ -6,7 +6,7 @@ const containerParent = document.getElementById("container");
 
 // set current time fn with moment.js
 const setCurrentTime = () => {
-  currentTime.textContent = moment().format("dddd, MMMM Do YYYY, LT");
+  const currentTime = moment().format("dddd, MMMM Do YYYY, LT");
   $("#currentDay").text(currentTime);
 };
 
