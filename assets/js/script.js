@@ -1,11 +1,24 @@
-const saveButton = document.getElementById("saveBtn");
+const saveButton = $("#saveBtn");
 const containerDiv = $(".container");
 const textAreas = containerDiv.children().children("textarea");
 
 // set current time fn with moment.js
 const setCurrentTime = () => {
-  const currentTime = moment().format("dddd, MMMM Do YYYY, LT");
+  const currentTime = moment().format("dddd, MMMM Do YYYY");
   $("#currentDay").text(currentTime);
+};
+
+// create arrays for each time block to store input in
+const textAreaInput = {
+  9: [],
+  10: [],
+  11: [],
+  12: [],
+  13: [],
+  14: [],
+  15: [],
+  16: [],
+  17: [],
 };
 
 // update time blocks fn - adjust colours according to the current hour
