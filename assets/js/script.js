@@ -11,7 +11,7 @@ const setCurrentTime = () => {
 const updateTimeBlocks = () => {
   // get current hour from moment.js
   const currentHour = moment().format("H");
-  console.log(currentHour);
+
   // convert str number to int number
   const currentHourInt = parseInt(currentHour);
   // set time classes to text
@@ -30,10 +30,11 @@ const updateTimeBlocks = () => {
   textAreas.each(setTimeClass);
 };
 // save input into local storage using on click event
-$(".saveBtn").on("click", function (event) {
+$(".saveBtn").click(function (event) {
   const textInputItem =
     event.target.parentElement.previousElementSibling.children[0].value;
   localStorage.setItem(event.target.attributes[0].value, textInputItem);
+  console.log(textInputItem);
 });
 // call functions with jquery
 $(document).ready(setCurrentTime);
