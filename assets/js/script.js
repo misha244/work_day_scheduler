@@ -29,12 +29,10 @@ const updateTimeBlocks = () => {
   };
   textAreas.each(setTimeClass);
 };
+
 // save input into local storage using on click event
-$(".saveBtn").click(function (event) {
-  const textInputItem =
-    event.target.parentElement.previousElementSibling.children[0].value;
-  localStorage.setItem(event.target.attributes[0].value, textInputItem);
-  console.log(textInputItem);
+$(".saveBtn").click(function () {
+  const textInputItem = localStorage.getItem();
 });
 // call functions with jquery
 $(document).ready(setCurrentTime);
