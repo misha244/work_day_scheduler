@@ -1,52 +1,55 @@
 const containerDiv = $(".container");
 const textAreas = containerDiv.children().children("textarea");
-// set elements for each time block
-const nineAmElement = document.querySelector("#user-input-9");
-const tenAmElement = document.querySelector("#user-input-10");
-const elevenAmElement = document.querySelector("#user-input-11");
-const twelevePmElement = document.querySelector("#user-input-12");
-const onePmElement = document.querySelector("#user-input-13");
-const twoPmElement = document.querySelector("#user-input-14");
-const threePmElement = document.querySelector("#user-input-15");
-const fourPmElement = document.querySelector("#user-input-16");
-const fivePmElement = document.querySelector("#user-input-17");
 // set current time fn with moment.js
 const setCurrentTime = () => {
   const currentTime = moment().format("dddd, MMMM Do YYYY");
   $("#currentDay").text(currentTime);
 };
 
-// update time blocks fn - adjust colours according to the current hour
-const updateTimeBlocks = () => {
-  // get current hour from moment.js
-  const currentHour = moment().format("H");
+$(document).ready(function () {
+  // saveBtn click listener
+  $(".saveBtn").on("click", function () {
+    // Get nearby values of the input in JQuery
+    const text = $(this).siblings(".input").val();
+    const time = $(this).parent().attr("id");
 
-  // convert str number to int number
-  const currentHourInt = parseInt(currentHour);
-  // set time classes to text
-  const setTimeClass = (index) => {
-    const myTimeString = textAreas[index].dataset.time;
-    // convert to int
-    const myTimeInt = parseInt(myTimeString);
-    if (myTimeInt === currentHourInt) {
-      $(textAreas[index]).addClass("present");
-    } else if (myTimeInt > currentHourInt) {
-      $(textAreas[index]).addClass("future");
-    } else {
-      $(textAreas[index]).addClass("past");
-    }
+    // Save text in local storage
+    localStorage.setItem(time, text);
+  });
+
+  const updateTimeBlocks = () => {
+    // get current hour from moment.js
+    const currentHour = moment().format("H");
+
+    // convert str number to int number
+    const currentHourInt = parseInt(currentHour);
+    // set time classes to text
+    const setTimeClass = (index) => {
+      const myTimeString = textAreas[index].dataset.time;
+      // convert to int
+      const myTimeInt = parseInt(myTimeString);
+      if (myTimeInt === currentHourInt) {
+        $(textAreas[index]).addClass("present");
+      } else if (myTimeInt > currentHourInt) {
+        $(textAreas[index]).addClass("future");
+      } else {
+        $(textAreas[index]).addClass("past");
+      }
+    };
+    textAreas.each(setTimeClass);
   };
-  textAreas.each(setTimeClass);
-};
 
-//
-//const saveTasksToLocal = (event) => {
-//  event.preventDefault();
-//
-//  const target = $(event.target);
-//};
+  // Get item from local storage if any
+  $("#input8 .input").val(localStorage.getItem("input8"));
+  $("#input9 .input").val(localStorage.getItem("input9"));
+  $("#input10 .input").val(localStorage.getItem("input10"));
+  $("#input11 .input").val(localStorage.getItem("input11"));
+  $("#input12 .input").val(localStorage.getItem("input12"));
+  $("#input13 .input").val(localStorage.getItem("input13"));
+  $("#input14 .input").val(localStorage.getItem("input14"));
+  $("#input15 .input").val(localStorage.getItem("input15"));
+  $("#input16 .input").val(localStorage.getItem("input16"));
+  $("#input17 .input").val(localStorage.getItem("input17"));
 
-// call functions with jquery
-$(document).ready(setCurrentTime);
-$(document).ready(updateTimeBlocks);
-$(".saveBtn").on("click", saveTasksToLocal);
+  updateTimeBlocks();
+});
