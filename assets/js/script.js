@@ -1,4 +1,3 @@
-const saveButton = $("#saveBtn");
 const containerDiv = $(".container");
 const textAreas = containerDiv.children().children("textarea");
 
@@ -30,17 +29,12 @@ const updateTimeBlocks = () => {
   };
   textAreas.each(setTimeClass);
 };
-
-//// create fn to save input to local storage
-//const setSaveButton = () => {
-//  const textInput = document.getElementById("text-area");
-//
-//  if (textInput !== "") {
-//    localStorage.setItem("textInput");
-//  }
-//  location.href = "https://misha244.github.io/work_day_scheduler/";
-//};
-
+// save input into local storage using on click event
+$(".saveBtn").on("click", function (event) {
+  const textInputItem =
+    event.target.parentElement.previousElementSibling.children[0].value;
+  localStorage.setItem(event.target.attributes[0].value, textInputItem);
+});
 // call functions with jquery
 $(document).ready(setCurrentTime);
 $(document).ready(updateTimeBlocks);
