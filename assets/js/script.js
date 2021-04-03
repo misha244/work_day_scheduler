@@ -1,43 +1,47 @@
 const containerDiv = $(".container");
 const textAreas = containerDiv.children().children("textarea");
+
 // set current time fn with moment.js
 const setCurrentTime = () => {
   const currentTime = moment().format("dddd, MMMM Do YYYY");
   $("#currentDay").text(currentTime);
 };
 
-$(document).ready(function () {
-  // saveBtn click listener
-  $(".saveBtn").on("click", function () {
-    // Get nearby values of the input in JQuery
-    const text = $(this).siblings(".input").val();
-    const time = $(this).parent().attr("id");
+// declared as a function expression due to 'this'
+const onSave = function () {
+  // Get nearby values of the input in JQuery
+  const text = $(this).siblings(".input").val();
+  const time = $(this).parent().attr("id");
 
-    // Save text in local storage
-    localStorage.setItem(time, text);
-  });
+  // Save text in local storage
+  localStorage.setItem(time, text);
+};
 
-  const updateTimeBlocks = () => {
-    // get current hour from moment.js
-    const currentHour = moment().format("H");
+const updateTimeBlocks = () => {
+  // get current hour from moment.js
+  const currentHour = moment().format("H");
 
-    // convert str number to int number
-    const currentHourInt = parseInt(currentHour);
-    // set time classes to text
-    const setTimeClass = (index) => {
-      const myTimeString = textAreas[index].dataset.time;
-      // convert to int
-      const myTimeInt = parseInt(myTimeString);
-      if (myTimeInt === currentHourInt) {
-        $(textAreas[index]).addClass("present");
-      } else if (myTimeInt > currentHourInt) {
-        $(textAreas[index]).addClass("future");
-      } else {
-        $(textAreas[index]).addClass("past");
-      }
-    };
-    textAreas.each(setTimeClass);
+  // convert str number to int number
+  const currentHourInt = parseInt(currentHour);
+  // set time classes to text
+  const setTimeClass = (index) => {
+    const myTimeString = textAreas[index].dataset.time;
+    // convert to int
+    const myTimeInt = parseInt(myTimeString);
+    if (myTimeInt === currentHourInt) {
+      $(textAreas[index]).addClass("present");
+    } else if (myTimeInt > currentHourInt) {
+      $(textAreas[index]).addClass("future");
+    } else {
+      $(textAreas[index]).addClass("past");
+    }
   };
+  textAreas.each(setTimeClass);
+};
+
+const onReady = () => {
+  // saveBtn click listener
+  $(".saveBtn").on("click", onSave);
 
   // Get item from local storage if any
   $("#input8 .input").val(localStorage.getItem("input8"));
@@ -52,4 +56,5 @@ $(document).ready(function () {
   $("#input17 .input").val(localStorage.getItem("input17"));
 
   updateTimeBlocks();
-});
+};
+$(document).ready(onReady);
