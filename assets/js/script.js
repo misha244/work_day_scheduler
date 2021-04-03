@@ -42,7 +42,6 @@ const updateTimeBlocks = () => {
 const onReady = () => {
   // saveBtn click listener
   $(".saveBtn").on("click", onSave);
-
   // Get item from local storage if any
   $("#input8 .input").val(localStorage.getItem("input8"));
   $("#input9 .input").val(localStorage.getItem("input9"));
