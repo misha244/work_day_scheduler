@@ -12,7 +12,7 @@
 
 ## About my Project
 
-This week's project was to create a simple calendar application that lets the user enter and save a task for each hour of the work day. HTML and CSS starer code was provided, with the CSS completed and the HTML to be updated. I build the JavaScript file from scratch and deployed jQuery in doing so. Moment.js was also utilized to access date/time.
+This week's project was to create a simple calendar application that lets the user enter and save a task for each hour of the work day. The user's input is then saved in local storage and is still accessible when the page is refreshed. HTML and CSS starer code was provided, with the CSS completed and the HTML to be updated. I build the JavaScript file from scratch and deployed jQuery in doing so. Moment.js was also utilized to access date/time.
 
 ## Screenshots
 
