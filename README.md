@@ -18,14 +18,14 @@ This week's project was to create a simple calendar application that lets the us
 
 #### Landing page
 
-![Landing-page](/assets/images/screenshots/landing_page.png)
+![Landing-page](./assets/images/screenshots/landing_page.png)
 
 #### Example tasks
 
-![Example-tasks](/assets/images/screenshots/page_tasks.png)
+![Example-tasks](./assets/images/screenshots/page_tasks.png)
 
 #### Local storage
 
-![Local-storage](/assets/images/screenshots/local_storage.png)
+![Local-storage](./assets/images/screenshots/local_storage.png)
 
 ## Fin.
